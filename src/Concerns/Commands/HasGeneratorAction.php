@@ -74,7 +74,7 @@ trait HasGeneratorAction
                 'LOWER_SECOND_NAMESPACE'  => \strtolower($this->getStaticPackageNameResult()),
                 'PROVIDER_PATH'           => $this->providerGeneratorPath(),
                 'AUTHOR_NAME'             => 'hanafalah',
-                'AUTHOR_MAIL'             => 'hamzahnuralfalah@gmail.com',
+                'AUTHOR_MAIL'             => 'hamzahnafalah@gmail.com',
                 'NAMESPACE'               => Str::replace('\\', '\\\\', $this->getStaticPackageNamespaceResult()),
                 'VERSION_PATH'            => $this->isNeedSource() ? 'src/' : '/',
                 'REPOSITORIES'            => function () {
