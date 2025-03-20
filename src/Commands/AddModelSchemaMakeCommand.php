@@ -1,11 +1,12 @@
 <?php
 
-namespace Zahzah\ModuleVersion\Commands;
+namespace Hanafalah\ModuleVersion\Commands;
 
-use Zahzah\LaravelStub\Facades\Stub;
-use Zahzah\ModuleVersion\Concerns\Commands\Schema\SchemaPrompt;
+use Hanafalah\LaravelStub\Facades\Stub;
+use Hanafalah\ModuleVersion\Concerns\Commands\Schema\SchemaPrompt;
 
-class AddModelSchemaMakeCommand extends EnvironmentCommand{
+class AddModelSchemaMakeCommand extends EnvironmentCommand
+{
     use SchemaPrompt;
 
     /**
@@ -25,7 +26,8 @@ class AddModelSchemaMakeCommand extends EnvironmentCommand{
     /**
      * Execute the console command.
      */
-    public function handle(){
+    public function handle()
+    {
         $this->runModelSchema();
     }
 }

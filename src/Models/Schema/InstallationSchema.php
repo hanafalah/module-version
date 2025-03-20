@@ -1,12 +1,13 @@
 <?php
 
-namespace Zahzah\ModuleVersion\Models\Schema;
+namespace Hanafalah\ModuleVersion\Models\Schema;
 
-use Zahzah\LaravelHasProps\Concerns\HasProps;
+use Hanafalah\LaravelHasProps\Concerns\HasProps;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Zahzah\LaravelSupport\Models\BaseModel;
+use Hanafalah\LaravelSupport\Models\BaseModel;
 
-class InstallationSchema extends BaseModel{
+class InstallationSchema extends BaseModel
+{
     use SoftDeletes, HasProps;
 
     /*
@@ -21,10 +22,18 @@ class InstallationSchema extends BaseModel{
     protected $table      = 'installation_schemas';
     protected $primaryKey = 'id';
     protected $fillable   = [
-        'id','parent_id','reference_type','reference_id','schema_id','description'
+        'id',
+        'parent_id',
+        'reference_type',
+        'reference_id',
+        'schema_id',
+        'description'
     ];
 
     //EIGER SECTION
-    public function schema(){return $this->belongsToModel('Schema');}
+    public function schema()
+    {
+        return $this->belongsToModel('Schema');
+    }
     //END EIGER SECTION
 }

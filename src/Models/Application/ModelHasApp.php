@@ -1,15 +1,25 @@
 <?php
 
-namespace Zahzah\ModuleVersion\Models\Application;
+namespace Hanafalah\ModuleVersion\Models\Application;
 
-use Zahzah\LaravelSupport\Models;
+use Hanafalah\LaravelSupport\Models;
 
-class ModelHasApp extends Models\BaseModel{
+class ModelHasApp extends Models\BaseModel
+{
 
     protected $fillable = [
-        'id','reference_type','reference_id','app_id'
+        'id',
+        'reference_type',
+        'reference_id',
+        'app_id'
     ];
 
-    public function app(){return $this->belongsToModel('App');}
-    public function reference(){return $this->morphTo();}
+    public function app()
+    {
+        return $this->belongsToModel('App');
+    }
+    public function reference()
+    {
+        return $this->morphTo();
+    }
 }

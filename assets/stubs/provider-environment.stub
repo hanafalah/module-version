@@ -2,7 +2,7 @@
 
 namespace {{NAMESPACE}};
 
-use Illuminate\Contracts\Container\Container;use Zahzah\LaravelSupport\Providers\BaseServiceProvider;
+use Illuminate\Contracts\Container\Container;use Hanafalah\LaravelSupport\Providers\BaseServiceProvider;
 
 abstract class {{CLASS_NAME}}Environment extends BaseServiceProvider{
     protected $__config_{{CONFIG_VAR_NAME}} = [];

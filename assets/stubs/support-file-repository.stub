@@ -3,7 +3,7 @@
 namespace {{NAMESPACE}};
 
 use Illuminate\Container\Container;
-use Zahzah\LaravelSupport\Concerns\Support\HasJson;
+use Hanafalah\LaravelSupport\Concerns\Support\HasJson;
 use Illuminate\Support\Facades\File;
 use {{CLASS_NAMESPACE}}\{{CONTRACT_NAME}}\FileRepositoryInterface;
 

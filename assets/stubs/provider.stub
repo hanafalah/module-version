@@ -2,7 +2,7 @@
 
 namespace {{NAMESPACE}};
 
-use Zahzah\LaravelSupport\Concerns\NowYouSeeMe;
+use Hanafalah\LaravelSupport\Concerns\NowYouSeeMe;
 use Illuminate\Support\Str;
 use {{CLASS_NAMESPACE}}\{
     {{CLASS_NAME}},

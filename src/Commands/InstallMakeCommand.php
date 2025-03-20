@@ -1,8 +1,9 @@
 <?php
 
-namespace Zahzah\ModuleVersion\Commands;
+namespace Hanafalah\ModuleVersion\Commands;
 
-class InstallMakeCommand extends EnvironmentCommand{
+class InstallMakeCommand extends EnvironmentCommand
+{
     /**
      * The name and signature of the console command.
      *
@@ -23,7 +24,7 @@ class InstallMakeCommand extends EnvironmentCommand{
      */
     public function handle()
     {
-        $provider = 'Zahzah\ModuleVersion\ModuleVersionServiceProvider';
+        $provider = 'Hanafalah\ModuleVersion\ModuleVersionServiceProvider';
 
         $this->comment('Installing ModuleVersion...');
         $this->callSilent('vendor:publish', [
@@ -37,14 +38,14 @@ class InstallMakeCommand extends EnvironmentCommand{
             '--tag'      => 'stubs'
         ]);
         $this->info('✔️  Created Stubs/ModuleVersionStubs');
-        
+
         $this->callSilent('vendor:publish', [
             '--provider' => $provider,
             '--tag'      => 'providers'
         ]);
 
         $this->info('✔️  Created ModuleVersionServiceProvider.php');
-        
+
         $this->callSilent('vendor:publish', [
             '--provider' => $provider,
             '--tag'      => 'migrations'
@@ -57,6 +58,6 @@ class InstallMakeCommand extends EnvironmentCommand{
         ]);
         $this->info('✔️  Module Version tables migrated');
 
-        $this->comment('zahzah/module-version installed successfully.');
+        $this->comment('hanafalah/module-version installed successfully.');
     }
 }

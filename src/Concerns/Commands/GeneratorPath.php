@@ -1,15 +1,17 @@
 <?php
 
-namespace Zahzah\ModuleVersion\Concerns\Commands;
+namespace Hanafalah\ModuleVersion\Concerns\Commands;
 
-trait GeneratorPath{
+trait GeneratorPath
+{
     /**
      * Get the path to the stub for the class.
      *
      * @return string The path to the stub.
      */
-    protected function getClassStubPath(): string{
-        return $this->getBaseStub().'/class.stub';
+    protected function getClassStubPath(): string
+    {
+        return $this->getBaseStub() . '/class.stub';
     }
 
     /**
@@ -17,17 +19,20 @@ trait GeneratorPath{
      *
      * @return string The path to the stub.
      */
-    protected function getComposerStubPath(): string{
-        return $this->getBaseStub().'/composer.json.stub';
+    protected function getComposerStubPath(): string
+    {
+        return $this->getBaseStub() . '/composer.json.stub';
     }
 
 
-    protected function getComposerRequireStubPath(): string{
-        return $this->getBaseStub().'/composer-require.stub';
+    protected function getComposerRequireStubPath(): string
+    {
+        return $this->getBaseStub() . '/composer-require.stub';
     }
 
-    protected function getComposerRepoStubPath(): string{
-        return $this->getBaseStub().'/composer-repo.stub';
+    protected function getComposerRepoStubPath(): string
+    {
+        return $this->getBaseStub() . '/composer-repo.stub';
     }
 
     /**
@@ -35,8 +40,9 @@ trait GeneratorPath{
      *
      * @return string The path to the stub.
      */
-    protected function getConfigStubPath(): string{
-        return $this->getBaseStub().'/config.stub';
+    protected function getConfigStubPath(): string
+    {
+        return $this->getBaseStub() . '/config.stub';
     }
 
     /**
@@ -44,8 +50,9 @@ trait GeneratorPath{
      *
      * @return string The path to the stub.
      */
-    protected function getProviderCommandStubPath(): string{
-        return $this->getBaseStub().'/provider-command.stub';
+    protected function getProviderCommandStubPath(): string
+    {
+        return $this->getBaseStub() . '/provider-command.stub';
     }
 
     /**
@@ -53,12 +60,14 @@ trait GeneratorPath{
      *
      * @return string The path to the stub.
      */
-    protected function getProviderRouteStubPath(): string{
-        return $this->getBaseStub().'/provider-route.stub';
+    protected function getProviderRouteStubPath(): string
+    {
+        return $this->getBaseStub() . '/provider-route.stub';
     }
 
-    protected function getIgnoreStubPath(): string{
-        return $this->getBaseStub().'/ignore.stub';
+    protected function getIgnoreStubPath(): string
+    {
+        return $this->getBaseStub() . '/ignore.stub';
     }
 
     /**
@@ -66,8 +75,9 @@ trait GeneratorPath{
      *
      * @return string The path to the stub.
      */
-    protected function getWebStubPath(): string{
-        return $this->getBaseStub().'/web.stub';
+    protected function getWebStubPath(): string
+    {
+        return $this->getBaseStub() . '/web.stub';
     }
 
     /**
@@ -75,8 +85,9 @@ trait GeneratorPath{
      *
      * @return string The path to the stub.
      */
-    protected function getApiStubPath(): string{
-        return $this->getBaseStub().'/api.stub';
+    protected function getApiStubPath(): string
+    {
+        return $this->getBaseStub() . '/api.stub';
     }
 
     /**
@@ -84,8 +95,9 @@ trait GeneratorPath{
      *
      * @return string The path to the stub.
      */
-    protected function getSupportFileRepoStubPath(): string{
-        return $this->getBaseStub().'/support-file-repository.stub';
+    protected function getSupportFileRepoStubPath(): string
+    {
+        return $this->getBaseStub() . '/support-file-repository.stub';
     }
 
     /**
@@ -93,8 +105,9 @@ trait GeneratorPath{
      *
      * @return string The path to the stub.
      */
-    protected function getClassLocalStubPath(): string{
-        return $this->getBaseStub().'/class-local-paths.stub';
+    protected function getClassLocalStubPath(): string
+    {
+        return $this->getBaseStub() . '/class-local-paths.stub';
     }
 
     /**
@@ -102,8 +115,9 @@ trait GeneratorPath{
      *
      * @return string The path to the stub.
      */
-    protected function getAddInstallationSchemaStubPath(): string{
-        return $this->getBaseStub().'/add-installation-schema.stub';
+    protected function getAddInstallationSchemaStubPath(): string
+    {
+        return $this->getBaseStub() . '/add-installation-schema.stub';
     }
 
     /**
@@ -111,8 +125,9 @@ trait GeneratorPath{
      *
      * @return string The path to the stub.
      */
-    protected function getFacadeStubPath(): string{
-        return $this->getBaseStub().'/facade-class.stub';
+    protected function getFacadeStubPath(): string
+    {
+        return $this->getBaseStub() . '/facade-class.stub';
     }
 
     /**
@@ -120,8 +135,9 @@ trait GeneratorPath{
      *
      * @return string The path to the stub.
      */
-    protected function getProviderEnvStubPath(): string{
-        return $this->getBaseStub().'/provider-environment.stub';
+    protected function getProviderEnvStubPath(): string
+    {
+        return $this->getBaseStub() . '/provider-environment.stub';
     }
 
     /**
@@ -129,8 +145,9 @@ trait GeneratorPath{
      *
      * @return string The path to the stub.
      */
-    protected function getInterfaceFileRepoStubPath(): string{
-        return $this->getBaseStub().'/interface-file-repository.stub';
+    protected function getInterfaceFileRepoStubPath(): string
+    {
+        return $this->getBaseStub() . '/interface-file-repository.stub';
     }
 
     /**
@@ -138,8 +155,9 @@ trait GeneratorPath{
      *
      * @return string The path to the stub.
      */
-    protected function getModelSchemaStubPath(): string{
-        return $this->getBaseStub().'/add-model-schema.stub';
+    protected function getModelSchemaStubPath(): string
+    {
+        return $this->getBaseStub() . '/add-model-schema.stub';
     }
 
     /**
@@ -147,8 +165,9 @@ trait GeneratorPath{
      *
      * @return string The path to the stub.
      */
-    protected function getSchemaStubPath(): string{
-        return $this->getBaseStub().'/add-schema.stub';
+    protected function getSchemaStubPath(): string
+    {
+        return $this->getBaseStub() . '/add-schema.stub';
     }
 
     /**
@@ -156,7 +175,8 @@ trait GeneratorPath{
      *
      * @return string The path to the stub.
      */
-    protected function getInstallationSchemaStubPath(): string{
-        return $this->getBaseStub().'/add-installation-schema.stub';
+    protected function getInstallationSchemaStubPath(): string
+    {
+        return $this->getBaseStub() . '/add-installation-schema.stub';
     }
 }

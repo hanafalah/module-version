@@ -1,13 +1,14 @@
 <?php
 
-namespace Zahzah\ModuleVersion\Models\Version;
+namespace Hanafalah\ModuleVersion\Models\Version;
 
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
-use Zahzah\LaravelHasProps\Concerns\HasCurrent;
-use Zahzah\LaravelHasProps\Concerns\HasProps;
-use Zahzah\LaravelSupport\Models\BaseModel;
+use Hanafalah\LaravelHasProps\Concerns\HasCurrent;
+use Hanafalah\LaravelHasProps\Concerns\HasProps;
+use Hanafalah\LaravelSupport\Models\BaseModel;
 
-class ModelHasVersion extends BaseModel{
+class ModelHasVersion extends BaseModel
+{
     use HasUlids, HasProps, HasCurrent;
 
     public $incrementing  = false;
@@ -16,18 +17,31 @@ class ModelHasVersion extends BaseModel{
 
     //I SUGGEST TO USE DEPLOYMENT VERSION
     protected $fillable = [
-        'id', 'parent_id', 'model_type', 'model_id', 'name', 'current'
+        'id',
+        'parent_id',
+        'model_type',
+        'model_id',
+        'name',
+        'current'
     ];
 
-    public function getConditions(): array{
-        return ['model_type','model_id'];
+    public function getConditions(): array
+    {
+        return ['model_type', 'model_id'];
     }
 
 
-    protected static function booted(): void{
+    protected static function booted(): void
+    {
         parent::booted();
     }
 
-    public function model(){return $this->morphTo();}
-    public function installationSchema(){return $this->morphOneModel('InstallationSchema','reference');}
+    public function model()
+    {
+        return $this->morphTo();
+    }
+    public function installationSchema()
+    {
+        return $this->morphOneModel('InstallationSchema', 'reference');
+    }
 }

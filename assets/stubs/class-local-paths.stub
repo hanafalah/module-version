@@ -1,7 +1,7 @@
 <?php 
 
 namespace {{NAMESPACE}};
-use Zahzah\LaravelSupport\Concerns\Support\HasCall;
+use Hanafalah\LaravelSupport\Concerns\Support\HasCall;
 
 use Illuminate\Support\Str;
 

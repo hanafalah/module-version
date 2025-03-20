@@ -2,8 +2,8 @@
 
 namespace App\Schemas\{{SCHEMA_CATEGORY}};
 
-use Zahzah\LaravelSupport\Concerns\Support\HasRequest;
-use Zahzah\MicroTenant\Schemas\EnvironmentSchema;
+use Hanafalah\LaravelSupport\Concerns\Support\HasRequest;
+use Hanafalah\MicroTenant\Schemas\EnvironmentSchema;
 
 class {{SCHEMA_NAME}} extends EnvironmentSchema{
     use HasRequest;

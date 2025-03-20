@@ -1,8 +1,9 @@
 <?php
 
-namespace Zahzah\ModuleVersion\Concerns\Commands;
+namespace Hanafalah\ModuleVersion\Concerns\Commands;
 
-trait Initialize{
+trait Initialize
+{
     /** @var bool */
     protected static $__init_status = false;
 
@@ -11,7 +12,8 @@ trait Initialize{
      *
      * @return boolean
      */
-    protected function notReady(){
+    protected function notReady()
+    {
         return !static::$__init_status;
     }
 
@@ -20,7 +22,8 @@ trait Initialize{
      *
      * @return void
      */
-    protected function initialized(){
+    protected function initialized()
+    {
         static::$__init_status = true;
     }
 }

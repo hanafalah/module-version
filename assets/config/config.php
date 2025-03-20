@@ -1,7 +1,7 @@
 <?php
 
-use Zahzah\ModuleVersion\Models as ModuleVersionModel;
-use Zahzah\ModuleVersion\Commands as Commands;
+use Hanafalah\ModuleVersion\Models as ModuleVersionModel;
+use Hanafalah\ModuleVersion\Commands as Commands;
 
 return [
     'application'         => [
@@ -10,13 +10,13 @@ return [
          * but avoid using 1.0.0 because it will make schema installation become not optimal
          */
         'version_pattern' => '1.^',
-        'namespace'       => env('APPLICATION_NAMESPACE','App/MicroTenant'),
-        'path'            => env('APPLICATION_PATH','app/MicroTenant'),
+        'namespace'       => env('APPLICATION_NAMESPACE', 'App/MicroTenant'),
+        'path'            => env('APPLICATION_PATH', 'app/MicroTenant'),
         'generate'        => [
             'migration'       => ['path' => 'Database/Migrations', 'generate' => true],
-            'model'           => ['path' => 'Models','generate'=>true],
-            'controller'      => ['path' => 'Controllers','generate'=>true],
-            'provider'        => ['path' => 'Providers','generate'=>true],
+            'model'           => ['path' => 'Models', 'generate' => true],
+            'controller'      => ['path' => 'Controllers', 'generate' => true],
+            'provider'        => ['path' => 'Providers', 'generate' => true],
             'config'          => ['path' => 'Config', 'generate' => true],
             'contracts'       => ['path' => 'Contracts', 'generate' => true],
             'concerns'        => ['path' => 'Concerns', 'generate' => true],
@@ -38,15 +38,15 @@ return [
             'ignore'          => ['path' => '', 'generate' => true]
         ]
     ],
-    'database' => [        
-        'models'  => [       
+    'database' => [
+        'models'  => [
             'App'                         => ModuleVersionModel\Application\App::class,
             'Schema'                      => ModuleVersionModel\Schema\Schema::class,
             'InstallationSchema'          => ModuleVersionModel\Schema\InstallationSchema::class,
             'ModelHasApp'                 => ModuleVersionModel\Application\ModelHasApp::class,
             'ModelHasVersion'             => ModuleVersionModel\Version\ModelHasVersion::class,
         ]
-        
+
     ],
     'commands' => [
         Commands\AddInstallationSchemaMakeCommand::class,
@@ -56,5 +56,5 @@ return [
         Commands\InstallMakeCommand::class,
         Commands\ProviderMakeCommand::class,
         Commands\InterfaceMakeCommand::class
-    ]    
+    ]
 ];

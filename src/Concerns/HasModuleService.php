@@ -1,22 +1,23 @@
 <?php
 
-namespace Zahzah\ModuleVersion\Concerns;
+namespace Hanafalah\ModuleVersion\Concerns;
 
 use Illuminate\Support\Str;
-use Zahzah\ModuleVersion\Concerns\Commands\Initialize;
-use Zahzah\ModuleVersion\Concerns\Commands\Installing\AppInstallPrompt;
+use Hanafalah\ModuleVersion\Concerns\Commands\Initialize;
+use Hanafalah\ModuleVersion\Concerns\Commands\Installing\AppInstallPrompt;
 
-trait HasModuleService{
+trait HasModuleService
+{
     use AppInstallPrompt;
     use Initialize;
 
     protected $__generator_list;
     protected static array $__choosed_config;
 
-    protected static string $__service_name = 'application', 
-    $__package_name, $__service_path,
-    $__namespace, $__service_file_path,
-    $__package_namespace, $__need_source;
+    protected static string $__service_name = 'application',
+        $__package_name, $__service_path,
+        $__namespace, $__service_file_path,
+        $__package_namespace, $__need_source;
 
     /**
      * Returns the path for the generator based on the method called.
@@ -26,12 +27,13 @@ trait HasModuleService{
      *
      * @return string
      */
-    public function __callGeneratorPath(){
+    public function __callGeneratorPath()
+    {
         $method = $this->getCallMethod();
         if (Str::endsWith($method, 'GeneratorPath')) {
             return static::$__choosed_config['generate'][Str::before($method, 'GeneratorPath')]['path'];
         }
-    }    
+    }
 
     /**
      * Set the flag to indicate whether the generated code is needed to be stored in the source folder.
@@ -39,12 +41,14 @@ trait HasModuleService{
      * @param bool $need_source
      * @return $this
      */
-    protected function setNeedSource(bool $need_source=true): self{
+    protected function setNeedSource(bool $need_source = true): self
+    {
         static::$__need_source = $need_source;
         return $this;
     }
 
-    protected function isNeedSource(): bool{
+    protected function isNeedSource(): bool
+    {
         return static::$__need_source;
     }
 
@@ -53,17 +57,19 @@ trait HasModuleService{
      *
      * @return string
      */
-    protected function withSource(): string{
+    protected function withSource(): string
+    {
         if (static::$__need_source) return '/src';
         return '';
     }
 
-        /**
+    /**
      * Get the lowercased version of the package name.
      *
      * @return string The lowercased package name.
      */
-    protected function lowerPackageName(): string{
+    protected function lowerPackageName(): string
+    {
         return Str::lower(static::$__package_name);
     }
 
@@ -73,13 +79,14 @@ trait HasModuleService{
      * @param string|null $folder_path
      * @return string
      */
-    protected function generateNamespace(? string $folder_path=null){
+    protected function generateNamespace(?string $folder_path = null)
+    {
         $package_name = static::$__package_name;
         $first_path   = (isset(static::$__namespace))
-            ? static::$__namespace.'\\'.$package_name
-            : $package_name;        
+            ? static::$__namespace . '\\' . $package_name
+            : $package_name;
         return (isset($folder_path))
-            ? $first_path.'\\'.static::$__choosed_config['generate'][$folder_path]['path']
+            ? $first_path . '\\' . static::$__choosed_config['generate'][$folder_path]['path']
             : $first_path;
     }
 
@@ -93,8 +100,9 @@ trait HasModuleService{
      * @param string|null $name
      * @return string The config name.
      */
-    protected function getConfigName(? string $name = null): string{
-        return Str::lower(Str::replace('_','-',Str::snake($name ?? $this->getStaticPackageNameResult())));
+    protected function getConfigName(?string $name = null): string
+    {
+        return Str::lower(Str::replace('_', '-', Str::snake($name ?? $this->getStaticPackageNameResult())));
     }
 
     /**
@@ -104,8 +112,9 @@ trait HasModuleService{
      *
      * @return string The path where the service file is located.
      */
-    public function getServicePath(): string{
-        return (static::$__service_file_path ?? static::$__service_path).$this->withSource();
+    public function getServicePath(): string
+    {
+        return (static::$__service_file_path ?? static::$__service_path) . $this->withSource();
     }
 
     /**
@@ -114,9 +123,10 @@ trait HasModuleService{
      * @param string $path The path to add to the base path.
      * @return string The path where the file will be generated.
      */
-    public function getGenerateLocation(string $path=''): string{
+    public function getGenerateLocation(string $path = ''): string
+    {
         $base_path = base_path($this->getServicePath());
-        return $base_path.'/'.$path;
+        return $base_path . '/' . $path;
     }
 
     /**
@@ -124,7 +134,8 @@ trait HasModuleService{
      *
      * @return self The current instance of the class.
      */
-    protected function createNewService(): self{
+    protected function createNewService(): self
+    {
         if (!isset(static::$__package_name)) $this->setPackageName($this->askName());
         $this->setServiceFilePath(static::$__package_name);
         return $this;
@@ -136,10 +147,11 @@ trait HasModuleService{
      *
      * @return self The current instance of the class.
      */
-    protected function setup(): self{        
-        if ($this->notReady()){
+    protected function setup(): self
+    {
+        if ($this->notReady()) {
             $this->newLine();
-            $this->cardLine('Initialize Process',function(){
+            $this->cardLine('Initialize Process', function () {
                 $this->init()
                     ->setChoosedService(config('module-version.application'))
                     ->setPackageName($this->argument('package-name'))
@@ -147,7 +159,7 @@ trait HasModuleService{
             });
         }
         return $this;
-    }   
+    }
 
     /**
      * Set the service file path to use for this command.
@@ -156,10 +168,11 @@ trait HasModuleService{
      *
      * @return $this
      */
-    protected function setServiceFilePath(string $file_location): self{
-        static::$__service_file_path = static::$__service_path.'/'.$file_location;
-        return $this; 
-    } 
+    protected function setServiceFilePath(string $file_location): self
+    {
+        static::$__service_file_path = static::$__service_path . '/' . $file_location;
+        return $this;
+    }
 
     /**
      * Set the package namespace to use for this command.
@@ -170,8 +183,9 @@ trait HasModuleService{
      *
      * @return $this
      */
-    protected function setPackageNamespace(): self{
-        static::$__package_namespace = static::$__namespace.'\\'.static::$__package_name;
+    protected function setPackageNamespace(): self
+    {
+        static::$__package_namespace = static::$__namespace . '\\' . static::$__package_name;
         return $this;
     }
 
@@ -183,9 +197,10 @@ trait HasModuleService{
      *
      * @return $this
      */
-    protected function setPackageName(string $package_name): self{
+    protected function setPackageName(string $package_name): self
+    {
         static::$__package_name = class_name_builder($package_name);
-        $this->info('Package '.static::$__package_name.' is being used');
+        $this->info('Package ' . static::$__package_name . ' is being used');
         return $this;
     }
 
@@ -196,7 +211,8 @@ trait HasModuleService{
      *
      * @return $this
      */
-    protected function setServicePath(string $path): self{
+    protected function setServicePath(string $path): self
+    {
         static::$__service_path = $path;
         return $this;
     }
@@ -206,7 +222,8 @@ trait HasModuleService{
      *
      * @return array The choosed service config to use.
      */
-    public function getChoosedConfig(): array{
+    public function getChoosedConfig(): array
+    {
         return static::$__choosed_config;
     }
 
@@ -215,10 +232,11 @@ trait HasModuleService{
      *
      * @return self
      */
-    protected function setGeneratorList(): self{
-        $this->cardLine('Reading Generator',function(){
+    protected function setGeneratorList(): self
+    {
+        $this->cardLine('Reading Generator', function () {
             $this->__generator_list = $this->getStaticChoosedConfigResult()['generate'];
-            $this->info('<fg=yellow>'.count($this->__generator_list).'</> Generator Listed');
+            $this->info('<fg=yellow>' . count($this->__generator_list) . '</> Generator Listed');
         });
         return $this;
     }
@@ -230,11 +248,12 @@ trait HasModuleService{
      *
      * @return $this
      */
-    protected function setNamespace(? string $namespace=null): self{
+    protected function setNamespace(?string $namespace = null): self
+    {
         $namespaces = $this->repo()->getClassReinforcement($namespace ?? static::$__choosed_config['namespace']);
-        $namespaces = \explode('/',$namespaces);
+        $namespaces = \explode('/', $namespaces);
         foreach ($namespaces as $key => $namespace) $namespaces[$key] = \class_name_builder($namespace);
-        static::$__namespace = implode('\\',$namespaces);
+        static::$__namespace = implode('\\', $namespaces);
         return $this;
     }
 
@@ -245,7 +264,8 @@ trait HasModuleService{
      *
      * @return $this
      */
-    protected function setChoosedService($choosed_service=null): self{
+    protected function setChoosedService($choosed_service = null): self
+    {
         static::$__choosed_config = $choosed_service ?? $this->getStaticModuleversionConfigResult()[static::$__service_name];
         $this->setServicePath(static::$__choosed_config['path']);
         return $this;
@@ -258,30 +278,33 @@ trait HasModuleService{
      *
      * @return string The generated class name.
      */
-    protected function generateClassName(): string{
+    protected function generateClassName(): string
+    {
         return \class_name_builder(static::$__package_name);
-    }   
+    }
 
     /**
      * Check if the service name has been choosed.
      *
      * @return bool
      */
-    protected function isServiceChoosed(){
+    protected function isServiceChoosed()
+    {
         return isset(static::$__service_name);
     }
-    
+
     /**
      * Set the service name to use and create the new service path.
      *
      * @return self The current instance of the class.
      */
-    protected function choosedService(){
-        if (!isset(static::$__choosed_config)){
-            $this->setChoosedService(config('module-version.'.static::$__service_name));
+    protected function choosedService()
+    {
+        if (!isset(static::$__choosed_config)) {
+            $this->setChoosedService(config('module-version.' . static::$__service_name));
         }
         $this->setNamespace(static::$__namespace ?? null)
-             ->createNewService();
+            ->createNewService();
         return $this;
     }
 
@@ -293,14 +316,15 @@ trait HasModuleService{
      *
      * @return self The current instance of the class.
      */
-    protected function chooseApplication(): self{
+    protected function chooseApplication(): self
+    {
         $apps  = $this->AppModel()->pluck('name')->toArray();
-        $apps  = array_merge(['new'],$apps);
-        $answer = $this->choice('Choose the type of application ?', $apps,'new');
+        $apps  = array_merge(['new'], $apps);
+        $answer = $this->choice('Choose the type of application ?', $apps, 'new');
         if ($answer == 'new') {
             $this->askAppVersion();
-        }else{
-            $this->__ask_app = $this->AppModel()->where('name',$answer)->first();
+        } else {
+            $this->__ask_app = $this->AppModel()->where('name', $answer)->first();
         }
         return $this;
     }

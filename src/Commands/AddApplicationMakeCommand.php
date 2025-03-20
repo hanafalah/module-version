@@ -1,16 +1,17 @@
 <?php
 
-namespace Zahzah\ModuleVersion\Commands;
+namespace Hanafalah\ModuleVersion\Commands;
 
-use Zahzah\ModuleVersion\{
+use Hanafalah\ModuleVersion\{
     Concerns\HasModuleService
 };
-use Zahzah\ModuleVersion\Concerns\Commands\HasGeneratorAction;
+use Hanafalah\ModuleVersion\Concerns\Commands\HasGeneratorAction;
 
-class AddApplicationMakeCommand extends EnvironmentCommand{
+class AddApplicationMakeCommand extends EnvironmentCommand
+{
     use HasModuleService;
     use HasGeneratorAction;
-    
+
     protected array $__local_paths = [], $__config_libs = [];
 
     /**
@@ -29,8 +30,9 @@ class AddApplicationMakeCommand extends EnvironmentCommand{
 
     /**
      * Execute the console command.
-    */
-    public function handle(){
+     */
+    public function handle()
+    {
         if ($this->notReady()) $this->init();
         $this->setNeedSource();
 

@@ -1,7 +1,5 @@
 <?php
 
-namespace Zahzah\ModuleVersion\Contracts;
+namespace Hanafalah\ModuleVersion\Contracts;
 
-interface ModuleVersion{
-    
-}
+interface ModuleVersion {}

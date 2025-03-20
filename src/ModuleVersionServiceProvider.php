@@ -2,22 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Zahzah\ModuleVersion;
-use Zahzah\LaravelSupport\Providers\BaseServiceProvider;
+namespace Hanafalah\ModuleVersion;
+
+use Hanafalah\LaravelSupport\Providers\BaseServiceProvider;
 
 class ModuleVersionServiceProvider extends BaseServiceProvider
 {
     public function register()
     {
         $this->registerMainClass(ModuleVersion::class)
-             ->registerCommandService(Providers\CommandServiceProvider::class)
-             ->registers([
-                '*','Services' => function(){
+            ->registerCommandService(Providers\CommandServiceProvider::class)
+            ->registers([
+                '*',
+                'Services' => function () {
                     $this->binds([
                         Contracts\ModuleVersion::class => new ModuleVersion
                     ]);
                 }
-             ]);
+            ]);
     }
 
     /**
@@ -25,7 +27,8 @@ class ModuleVersionServiceProvider extends BaseServiceProvider
      *
      * @return string
      */
-    protected function dir(): string{
-        return __DIR__.'/';
+    protected function dir(): string
+    {
+        return __DIR__ . '/';
     }
 }

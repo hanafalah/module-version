@@ -1,15 +1,17 @@
 <?php
 
-namespace Zahzah\ModuleVersion\Schemas;
+namespace Hanafalah\ModuleVersion\Schemas;
 
-use Zahzah\LaravelSupport\Concerns;
-use Zahzah\LaravelSupport\Supports\PackageManagement;
+use Hanafalah\LaravelSupport\Concerns;
+use Hanafalah\LaravelSupport\Supports\PackageManagement;
 
-class EnvironmentSchema extends PackageManagement{
+class EnvironmentSchema extends PackageManagement
+{
     use Concerns\Support\HasArray;
     use Concerns\DatabaseConfiguration\HasModelConfiguration;
 
-    public function callCustomMethod(){
+    public function callCustomMethod()
+    {
         return ['Model'];
-    }    
+    }
 }

@@ -1,10 +1,11 @@
 <?php
 
-namespace Zahzah\ModuleVersion\Commands;
+namespace Hanafalah\ModuleVersion\Commands;
 
-use Zahzah\ModuleVersion\Concerns\Commands\Schema\SchemaPrompt;
+use Hanafalah\ModuleVersion\Concerns\Commands\Schema\SchemaPrompt;
 
-class RunSchemaMakeCommand extends EnvironmentCommand{
+class RunSchemaMakeCommand extends EnvironmentCommand
+{
     use SchemaPrompt;
 
     /**
@@ -24,7 +25,8 @@ class RunSchemaMakeCommand extends EnvironmentCommand{
     /**
      * Execute the console command.
      */
-    public function handle(){
+    public function handle()
+    {
         $schema = $this->argument('schema-path');
         $schema = app(str_replace('/', '\\', "App\\Schemas\\{$schema}"));
         $schema->boot();

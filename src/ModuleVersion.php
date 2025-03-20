@@ -1,10 +1,11 @@
 <?php
 
-namespace Zahzah\ModuleVersion;
+namespace Hanafalah\ModuleVersion;
 
-use Zahzah\LaravelSupport\Supports\PackageManagement;
+use Hanafalah\LaravelSupport\Supports\PackageManagement;
 
-class ModuleVersion extends PackageManagement{
+class ModuleVersion extends PackageManagement
+{
     /** @var array */
     protected $__microtenant_config = [];
 
@@ -13,7 +14,5 @@ class ModuleVersion extends PackageManagement{
      *
      * @param Container $app The application container.
      */
-    public function __construct(){
-
-    }
+    public function __construct() {}
 }

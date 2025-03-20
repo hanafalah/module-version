@@ -3,7 +3,7 @@
 namespace {{NAMESPACE}};
 
 use Illuminate\Database\Eloquent\Model;
-use Zahzah\LaravelSupport\{
+use Hanafalah\LaravelSupport\{
     Concerns\Support\HasRepository,
     Supports\PackageManagement,
     Events as SupportEvents

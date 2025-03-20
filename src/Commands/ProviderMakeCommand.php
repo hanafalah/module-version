@@ -1,8 +1,8 @@
 <?php
 
-namespace Zahzah\ModuleVersion\Commands;
+namespace Hanafalah\ModuleVersion\Commands;
 
-use Zahzah\LaravelStub\Facades\Stub;
+use Hanafalah\LaravelStub\Facades\Stub;
 
 use Illuminate\Support\Str;
 
@@ -36,15 +36,15 @@ class ProviderMakeCommand extends EnvironmentCommand
     public function handle()
     {
         $this->setup();
-        
+
         $package_name = static::$__package_name;
         $this->__name = !$this->option('name') ? $package_name : $this->option('name');
 
-        $save_path = $this->getGenerateLocation().'/'.$this->providerGeneratorPath();
+        $save_path = $this->getGenerateLocation() . '/' . $this->providerGeneratorPath();
 
-        $this->cardLine('Creating Package Provider',function() use ($save_path,$package_name){
-            Stub::init($this->getBaseStub().'/provider.stub',[
-                'WHEN_BOOTED'       => "\t\t\t".'$this->registers(["*"]);',
+        $this->cardLine('Creating Package Provider', function () use ($save_path, $package_name) {
+            Stub::init($this->getBaseStub() . '/provider.stub', [
+                'WHEN_BOOTED'       => "\t\t\t" . '$this->registers(["*"]);',
                 'CLASS_NAMESPACE'   => $this->generateNamespace(),
                 'NAMESPACE'         => $this->generateNamespace('provider'),
                 'CONTRACT_PATH'     => $this->contractsGeneratorPath(),
@@ -52,13 +52,14 @@ class ProviderMakeCommand extends EnvironmentCommand
                 'FACADES_PATH'      => $this->facadesGeneratorPath(),
                 'CLASS_NAME'        => $package_name,
                 'LOWER_CLASS_NAME'  => $this->lowerPackageName(),
-                'CONFIG_NAME'       => Str::lower(Str::replace(' ','-',$package_name)),
+                'CONFIG_NAME'       => Str::lower(Str::replace(' ', '-', $package_name)),
                 'DEFINE_FEATURE'    => ''
-            ])->saveTo($save_path,$package_name.'ServiceProvider.php');
-        });        
+            ])->saveTo($save_path, $package_name . 'ServiceProvider.php');
+        });
     }
 
-    public function callCustomMethod(): array{
-        return ['Model','GeneratorPath'];
+    public function callCustomMethod(): array
+    {
+        return ['Model', 'GeneratorPath'];
     }
 }

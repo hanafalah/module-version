@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Zahzah\ModuleVersion\Providers;
+namespace Hanafalah\ModuleVersion\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Zahzah\ModuleVersion\Commands as Commands;
+use Hanafalah\ModuleVersion\Commands as Commands;
 
 class CommandServiceProvider extends ServiceProvider
 {
@@ -24,8 +24,9 @@ class CommandServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register(){
-        $this->commands(config('module-version.commands',$this->commands));
+    public function register()
+    {
+        $this->commands(config('module-version.commands', $this->commands));
     }
 
     public function provides()

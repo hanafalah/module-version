@@ -1,8 +1,8 @@
 {
-    "name": "zahzah/module-version",
+    "name": "hanafalah/module-version",
     "autoload": {
         "psr-4": {
-            "Zahzah\\ModuleVersion\\": "src/"
+            "Hanafalah\\ModuleVersion\\": "src/"
         }
     },
     "authors": [
@@ -14,12 +14,12 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Zahzah\\ModuleVersion\\ModuleVersionServiceProvider"
+                "Hanafalah\\ModuleVersion\\ModuleVersionServiceProvider"
             ]
         }
     },
     "require": {
-        "zahzah/laravel-support": "1.x",
+        "hanafalah/laravel-support": "1.x",
         "aibnuhibban/bitbucket-laravel": "dev-main"
     },
     "minimum-stability": "dev",
