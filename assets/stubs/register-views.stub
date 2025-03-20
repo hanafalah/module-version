@@ -1,0 +1,11 @@
+    public function registerViews(){
+        $viewPath = resource_path('views/'.$this->__lower_package_name);
+
+        $sourcePath = tenant_path('{{VIEW_PATH}}');
+
+        $this->publishes([
+            $sourcePath => $viewPath
+        ], ['views', $this->__lower_package_name . '-views']);
+
+        $this->loadViewsFrom($this->mergeArray($this->getPublishableViewPaths($this->__lower_package_name), [$sourcePath]), $this->__lower_package_name);
+    }

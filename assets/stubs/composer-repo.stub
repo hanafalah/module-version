@@ -1,0 +1,7 @@
+"{{PACKAGE_AUTHOR}}/{{PACKAGE_NAME}}": {
+            "type"   : "path",
+            "url"    : "{{PACKAGE_PATH}}",
+            "options": {
+                "symlink": true
+            }
+        }

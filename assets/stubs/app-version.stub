@@ -1,0 +1,8 @@
+"{{SERVICE_NAME}}" : {
+    "current-version"   : "{{CURRENT_VERSION}}",
+    "current-upgrade"   : "{{CURRENT_UPGRADE}}",
+    "last-used-version" : "{{LAST_USED_VERSION}}",
+    "versions"          : {
+        {{VERSIONS}}
+    }
+}

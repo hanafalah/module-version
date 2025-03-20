@@ -1,0 +1,31 @@
+<?php 
+
+return [
+    "service_name" => "{{SERVICE_NAME}}",
+    "with-source"  => {{WITH_SOURCE}},
+    "paths"        => [
+        "base_path"    => __DIR__.'\\..\\'
+    ],
+    "libs"         => [
+{{LIBS}}
+    ],
+    "packages"     => [
+        /*--------------------------------------------------------------------------
+        * Note: The contents of the packages are started with the class base name, 
+        * then followed by config and others. You can be used to override default package config
+        * "zahzah/module-user" => [
+        *       "config" => []
+        * ]
+        *------------------------------------------------------------------------*/
+
+        "{{PACKAGES}}"
+    ],
+    "database"     => [
+        "models"   => [
+            
+        ]
+    ],
+    "commands"     => [
+              
+    ]
+];

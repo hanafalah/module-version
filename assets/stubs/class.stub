@@ -1,0 +1,36 @@
+<?php
+
+namespace {{NAMESPACE}};
+
+use Illuminate\Database\Eloquent\Model;
+use Zahzah\LaravelSupport\{
+    Concerns\Support\HasRepository,
+    Supports\PackageManagement,
+    Events as SupportEvents
+};
+
+class {{CLASS_NAME}} extends PackageManagement{
+    use {{SUPPORT_PATH}}\LocalPath,HasRepository;
+
+    public ${{LOWER_CLASS_NAME}};
+
+    const LOWER_CLASS_NAME = "{{LOWER_CLASS_NAME}}";
+    const SERVICE_TYPE     = "{{SERVICE_NAME}}";
+    const ID               = "{{ID}}";
+
+    public Model $model;
+
+    public function events(){
+        return [
+            SupportEvents\InitializingEvent::class => [],
+            SupportEvents\EventInitialized::class  => [],
+            SupportEvents\EndingEvent::class       => [],
+            SupportEvents\EventEnded::class        => [],
+            //ADD MORE EVENTS
+        ];
+    }
+
+    protected function dir(): string{
+        return __DIR__;
+    }
+}

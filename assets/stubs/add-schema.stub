@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Schemas\{{SCHEMA_CATEGORY}};
+
+use Zahzah\LaravelSupport\Concerns\Support\HasRequest;
+use Zahzah\MicroTenant\Schemas\EnvironmentSchema;
+
+class {{SCHEMA_NAME}} extends EnvironmentSchema{
+    use HasRequest;
+    
+    /**
+     * Execute command.
+     */
+    public function boot(): void{
+        $this->transaction(function(){
+            $model = $this->AppModel()->where('name','{{APP_NAME}}')->first();
+        
+            //ADD YOUR PREFERENCES HERE
+        });
+    }
+}

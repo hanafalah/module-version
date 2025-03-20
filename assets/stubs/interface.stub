@@ -1,0 +1,11 @@
+<?php
+
+namespace {{NAMESPACE}};
+
+use Illuminate\Container\Container;
+
+interface {{INTERFACE_NAME}}
+{
+    public function __construct(Container $app,...$args);
+    {{METHODS}}
+}

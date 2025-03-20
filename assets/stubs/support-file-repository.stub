@@ -1,0 +1,34 @@
+<?php
+
+namespace {{NAMESPACE}};
+
+use Illuminate\Container\Container;
+use Zahzah\LaravelSupport\Concerns\Support\HasJson;
+use Illuminate\Support\Facades\File;
+use {{CLASS_NAMESPACE}}\{{CONTRACT_NAME}}\FileRepositoryInterface;
+
+class FileRepository implements FileRepositoryInterface{
+    use HasJson;
+    
+    /** @var Container */
+    protected $__app;
+
+    /** @var File */
+    protected $__file;
+    
+    /** @var string */
+    protected $__base_path;
+
+    /** @var array */
+    protected $__config = [],$__paths;
+
+    public function __construct(Container $app,...$args){
+        $this->__app               = $app;
+        $this->__config            = config('{{CONFIG_NAME}}'); 
+        $this->__paths             = $this->__config['paths'];
+        $this->__base_path         = $this->__paths['base_path'];
+        $this->__file              = new File;
+    }
+
+{{SETUP_FILE_DISCOVERY}}
+}

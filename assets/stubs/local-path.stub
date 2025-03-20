@@ -1,0 +1,6 @@
+    public function get{{PATH_NAME}}Path(string $path=''){
+        $path = $this->getConfig('libs.{{KEY}}').'\\'.$path;
+        return $this->getClassPath($path);
+    }
+
+    

@@ -1,0 +1,11 @@
+<?php
+
+namespace {{NAMESPACE}};
+
+use Illuminate\Container\Container;
+    
+interface FileRepositoryInterface
+{
+    public function __construct(Container $app,...$args);
+    {{WITH_DISCOVERING}}
+}

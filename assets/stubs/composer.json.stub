@@ -1,0 +1,31 @@
+{
+    "name": "{{AUTHOR}}/{{LOWER_SECOND_NAMESPACE}}",
+    "description": "",
+    "authors": [
+        {
+            "name": "{{AUTHOR_NAME}}",
+            "email": "{{AUTHOR_MAIL}}"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "{{NAMESPACE}}\\{{PROVIDER_PATH}}\\{{PACKAGE_NAME}}ServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "repositories":{
+        {{REPOSITORIES}}
+    },
+    "require-dev": {
+        {{REQUIRE_DEV}}
+    },
+    "autoload": {
+        "psr-4": {
+            "{{NAMESPACE}}\\": "{{VERSION_PATH}}/"
+        }
+    }
+}

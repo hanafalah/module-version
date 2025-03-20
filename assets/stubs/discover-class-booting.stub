@@ -1,0 +1,7 @@
+        $this->app->booted(function($app): void{
+            $this->setRepository($app[FileRepositoryInterface::class]);
+            $discovers = $this->repo()->setupClassDiscover();
+            foreach ($discovers->all() as $discover) {
+                $this->app->registerDeferredProvider($discover->getName());
+            }
+        });

@@ -1,0 +1,42 @@
+<?php
+
+namespace {{NAMESPACE}};
+
+use Zahzah\LaravelSupport\Concerns\NowYouSeeMe;
+use Illuminate\Support\Str;
+use {{CLASS_NAMESPACE}}\{
+    {{CLASS_NAME}},
+    {{CONTRACT_PATH}},
+    {{SUPPORT_PATH}},
+    {{FACADES_PATH}}
+};
+
+class {{CLASS_NAME}}ServiceProvider extends {{CLASS_NAME}}Environment
+{
+    use NowYouSeeMe;
+
+    public function register()
+    {
+        $this->registerMainClass({{CLASS_NAME}}::class)
+             ->registerCommandService(CommandServiceProvider::class)
+             ->registerServices(function(){
+                $this->binds([
+                    {{CONTRACT_PATH}}\{{CLASS_NAME}}Interface::class => function(){
+                        return new {{CLASS_NAME}};
+                    },
+                    {{CONTRACT_PATH}}\FileRepositoryInterface::class => Supports\FileRepository::class
+                ]);
+            });    
+    }
+
+    public function boot(){
+        // codes that will be run after the package booted
+        $this->app->booted(function(){
+{{WHEN_BOOTED}}         
+               
+             $this->registerRouteService(RouteServiceProvider::class)
+        });
+
+{{DEFINE_FEATURE}}
+    }
+}

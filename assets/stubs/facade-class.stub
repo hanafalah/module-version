@@ -1,0 +1,14 @@
+<?php
+
+namespace {{NAMESPACE}}\{{FACADES_PATH}};
+
+use Illuminate\Support\Facades\Facade;
+use {{NAMESPACE}}\{{CONTRACTS_PATH}};
+
+class {{CLASS_NAME}} extends Facade
+{
+    protected static function getFacadeAccessor(): string
+    {
+        return {{CONTRACTS_PATH}}\{{CLASS_NAME}}Interface::class;
+    }
+}

@@ -1,0 +1,26 @@
+<?php
+
+namespace {{NAMESPACE}};
+
+use Illuminate\Container\Container;
+
+class {{CLASS_NAME}} extends {{PARENT_CLASS_NAME}}{
+    use {{SUPPORT_PATH}}\LocalPath;
+
+    public function __construct(Container $app,...$args){
+        $this->__app = $app;
+        $this->__file_repository = app({{CONTRACT_PATH}}\FileRepositoryInterface::class);
+    }
+
+    protected function myLocation(){
+        return __DIR__;
+    }
+
+    public function repository(){
+        return $this->__file_repository;
+    }
+
+    public function parent(){
+        return parent::class;
+    }
+}

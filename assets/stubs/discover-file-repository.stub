@@ -1,0 +1,14 @@
+    /**
+     * Setup the class discovery for patches.
+     *
+     * @return mixed
+     */
+    public function setupClassDiscover(): mixed{
+        $patches_path  = $this->__base_path.$this->__paths['discovering']['patches'];
+        if (!is_dir($patches_path)) File::makeDirectory($patches_path,0777,true);
+        return \Zahzah\LaravelSupport\Supports\DiscoverClass::init($this->__app)
+                ->setPatchChecking(true)
+                ->withPaths($patches_path)
+                ->withBaseClasses(\Illuminate\Support\ServiceProvider::class)
+                ->discover();
+    }

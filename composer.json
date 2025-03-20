@@ -1,0 +1,32 @@
+{
+    "name": "zahzah/module-version",
+    "autoload": {
+        "psr-4": {
+            "Zahzah\\ModuleVersion\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "hamzah",
+            "email": "hamzahnuralfalah@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Zahzah\\ModuleVersion\\ModuleVersionServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "zahzah/laravel-support": "1.x",
+        "aibnuhibban/bitbucket-laravel": "dev-main"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": false,
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": false
+        }
+    }
+}

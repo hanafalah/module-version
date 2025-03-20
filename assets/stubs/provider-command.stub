@@ -1,0 +1,19 @@
+<?php
+
+namespace {{NAMESPACE}};
+
+use Illuminate\Support\ServiceProvider;
+
+class CommandServiceProvider extends ServiceProvider
+{
+    private $commands = [];
+
+    public function register(){
+        $this->commands(config('{{CONFIG_NAME}}.commands',$this->commands));
+    }
+
+    public function provides()
+    {
+        return $this->commands;
+    }
+}

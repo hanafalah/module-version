@@ -1,0 +1,4 @@
+                    "{{PATCH}}": {
+                        "last-used-version": "{{LAST_USED_VERSION}}",
+                        "meta-codename": "{{META_CODE_NAME}}"
+                    }

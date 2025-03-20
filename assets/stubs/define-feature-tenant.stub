@@ -1,0 +1,3 @@
+        Feature::define('{{FEATURE_NAME}}', function({{DEFINE_MODEL}}){
+            {{FEATURE_LOGIC}}
+        });

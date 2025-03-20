@@ -1,0 +1,41 @@
+<?php
+
+namespace {{NAMESPACE}};
+
+use Illuminate\Contracts\Container\Container;use Zahzah\LaravelSupport\Providers\BaseServiceProvider;
+
+abstract class {{CLASS_NAME}}Environment extends BaseServiceProvider{
+    protected $__config_{{CONFIG_VAR_NAME}} = [];
+    protected string $__lower_package_name;
+    protected string $__config_base_path      = '/../Config';
+    protected string $__migration_target_path = '';
+
+    public function __construct(Container $app){
+        parent::__construct($app);
+        $this->__config_{{CONFIG_VAR_NAME}} = $this->__config['{{CONFIG_VAR_NAME}}'];
+    }
+
+    protected function dir(): string{
+        return __DIR__.'/';
+    }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides(){
+        return [];
+    }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides(){
+        return [];
+    }
+
+{{STUB_REGISTER_VIEWS}}    
+}
