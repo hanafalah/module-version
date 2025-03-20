@@ -19,8 +19,7 @@
         }
     },
     "require": {
-        "hanafalah/laravel-support": "1.x",
-        "aibnuhibban/bitbucket-laravel": "dev-main"
+        "hanafalah/laravel-support": "1.x"
     },
     "minimum-stability": "dev",
     "prefer-stable": false,

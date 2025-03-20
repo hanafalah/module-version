@@ -2,7 +2,7 @@
 
 namespace Hanafalah\ModuleVersion\Concerns\Commands\Installing;
 
-use Aibnuhibban\BitbucketLaravel\Traits\BitbucketTrait;
+use Hanafalah\BitbucketLaravel\Traits\BitbucketTrait;
 use Hanafalah\LaravelSupport\Concerns\DatabaseConfiguration\HasModelConfiguration;
 use Hanafalah\LaravelStub\Facades\Stub;
 
