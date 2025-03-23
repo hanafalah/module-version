@@ -38,6 +38,10 @@ return [
             'ignore'          => ['path' => '', 'generate' => true]
         ]
     ],
+    'libs' => [
+        'model' => 'Models',
+        'contract' => 'Contracts'
+    ],
     'database' => [
         'models'  => [
             'App'                         => ModuleVersionModel\Application\App::class,
